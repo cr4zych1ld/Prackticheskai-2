@@ -1,0 +1,65 @@
+﻿<Window x:Class="Практическая_работа__2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Практическая_работа__2"
+        mc:Ignorable="d"
+        Title="Практическая работа №2" Height="400" Width="400" ResizeMode="CanMinimize" Background="#FFEEB7FF">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="23*"/>
+            <RowDefinition Height="161*"/>
+            <RowDefinition Height="180*"/>
+        </Grid.RowDefinitions>
+        <Menu Height="20" VerticalAlignment="Top" Grid.ColumnSpan="2" Background="#FFA772B7">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Сохранить" Click="btnSave_Click" Background="#FFFBB0FF"/>
+                <MenuItem Header="Открыть" Click="btnOpen_Click" Background="#FFFBB0FF"/>
+                <Separator Background="#FFFBB0FF"></Separator>
+                <MenuItem Header="Выход" Click="btnExit_Click" ToolTip="Закрытие программы" Background="#FFFBB0FF"/>
+            </MenuItem>
+            <MenuItem Header="Действия" ToolTip="Основные элементы управления в программе">
+                <MenuItem Header="Заполнить" Click="Fill_Click" Background="#FFFBB0FF"/>
+                <MenuItem Header="Создать" Click="btnCreate_Click" Background="#FFFBB0FF"/>
+                <MenuItem Header="Рассчитать" Click="btnCalc_Click" Background="#FFFBB0FF"/>
+                <MenuItem Header="Очистить" Click="btnClear_Click" Background="#FFFBB0FF"/>
+            </MenuItem>
+            <MenuItem Header="Справка" ToolTip="Основная информация о программе">
+                <MenuItem Header="О программе" Click="btnProgInfo_Click" Background="#FFFBB0FF"/>
+                <MenuItem Header="О создателе" Click="btnRazrab_Click" Background="#FFFBB0FF"/>
+            </MenuItem>
+        </Menu>
+        <GroupBox Header="Заполнение таблицы" Grid.Row="2" Grid.RowSpan="3">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="73*"/>
+                    <ColumnDefinition Width="110*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBox x:Name="tbColumnCount" ToolTip="Введите кол-во колонок" HorizontalAlignment="Center" Height="20" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="64" Background="#FFFDDFFF"/>
+                <TextBox x:Name="tbDiapozon" ToolTip="Введите диапозон значений" Height="20" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Margin="0,0,5,0" HorizontalAlignment="Right" Width="64" Background="#FFFDDFFF"/>
+                <Button Content="Заполнить" ToolTip="Заполнить таблицу случайными числами" Click="Fill_Click" Grid.ColumnSpan="2" Height="20" Grid.Row="2" VerticalAlignment="Center" Margin="4,0,19,0" Background="#FFCB83FF"/>
+                <Button Content="Создать" ToolTip="Создать таблицу с указанным кол-вом столбцов" Click="btnCreate_Click"  Grid.ColumnSpan="2" Height="20" Margin="4,0,19,0" Grid.Row="3" VerticalAlignment="Center" Background="#FFCB83FF"/>
+                <Label Grid.Column="1" Content="-кол-во колонок" HorizontalAlignment="Center" Height="25" VerticalAlignment="Center" Width="105"/>
+                <Label Grid.Column="1" Content="-диапозон" HorizontalAlignment="Center" Height="25" Grid.Row="1" VerticalAlignment="Center" Width="105"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Произведение расчёта" Grid.Row="2" Grid.Column="1" Grid.RowSpan="3">
+            <StackPanel>
+                <Button Content="Рассчитать" ToolTip="Расчёт значений из таблицы" Click="btnCalc_Click" Height="25" Width="70" Margin="0,5" Background="#FFCB83FF"/>
+                <ListBox x:Name="listBoxRezult" ToolTip="Посчитанные значения" Height="120" Width="160" Background="#FFFDDFFF"/>
+            </StackPanel>
+        </GroupBox>
+        <DataGrid x:Name="dataGrid" ToolTip="Таблица" Grid.ColumnSpan="2" CanUserAddRows="False" HorizontalAlignment="Left" Height="141" CellEditEnding="dataGrid_CellEditEnding" VerticalAlignment="Center" Width="400" Grid.Row="1" Background="#FFFDDFFF"/>
+    </Grid>
+</Window>
